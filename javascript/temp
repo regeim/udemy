@@ -1,0 +1,3 @@
+<button v-on:click="addNewHobby">New Hobby</button>
+
+'Hello world'

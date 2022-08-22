@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="newHobby" />
+        <button v-on:click="addNewHobby">New Hobby</button>
+        <ul>
+            <li
+                    v-for="(hobby,index) in hobbies"
+                    v-on:click="removeHobby(index)"
+            >{{ hobby }}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                newHobby: '',
+                hobbies: ['Playing video games','Hiking','Reading books', 'Learning programming']
+            },
+            methods:
+                {
+                    addNewHobby: function (){
+                        this.hobbies.push(this.newHobby);
+                    },
+                    removeHobby: function (index) {
+                        this.hobbies.splice(index, 1);
+                    }
+                }
+        });
+    </script>
+</body>
+</html>
